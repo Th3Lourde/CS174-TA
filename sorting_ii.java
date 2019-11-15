@@ -39,6 +39,33 @@ public class Sorting_ii {
 
   }
 
+  public static long bubble_sort_multi(int arr[], int x) {
+
+    // Sort the array x-times, return the total time
+
+    int tmp[];
+    int time = 0;
+    long startTime = System.nanoTime();
+    long endTime = System.nanoTime();
+
+    for (int i=0; i <= x; i++) {
+
+      tmp = arr.clone();
+
+      startTime = System.nanoTime();
+
+      bubble_sort(tmp);
+
+      // 'End' timer
+      endTime = System.nanoTime();
+
+      time += endTime-startTime;
+
+    }
+
+    return time/x;
+  }
+
 
   public static void bubble_sort(int arr[]) {
         int n = arr.length;
@@ -52,6 +79,36 @@ public class Sorting_ii {
                     arr[j+1] = temp;
                 }
     }
+
+  public static long insertion_sort_multi(int arr[], int x) {
+
+    // Sort the array x-times, return the total time
+
+    int tmp[];
+    int time = 0;
+    long startTime = System.nanoTime();
+    long endTime = System.nanoTime();
+
+    for (int i=0; i <= x; i++) {
+
+      tmp = arr.clone();
+
+      startTime = System.nanoTime();
+
+      insertion_sort(tmp);
+
+      // 'End' timer
+      endTime = System.nanoTime();
+
+      time += endTime-startTime;
+
+    }
+
+    return time/x;
+  }
+
+
+
 
   public static void insertion_sort(int arr[]) {
         int n = arr.length;
@@ -90,6 +147,33 @@ public class Sorting_ii {
         }
     }
 
+    public static long selection_sort_multi(int arr[], int x) {
+
+      // Sort the array x-times, return the total time
+
+      int tmp[];
+      int time = 0;
+      long startTime = System.nanoTime();
+      long endTime = System.nanoTime();
+
+      for (int i=0; i <= x; i++) {
+
+        tmp = arr.clone();
+
+        startTime = System.nanoTime();
+
+        selection_sort(tmp);
+
+        // 'End' timer
+        endTime = System.nanoTime();
+
+        time += endTime-startTime;
+
+      }
+
+      return time/x;
+    }
+
 
 
   public static void printArray(int arr[]) {
@@ -126,19 +210,22 @@ public class Sorting_ii {
       int intArray2[] = intArray.clone();
       int intArray3[] = intArray.clone();
 
+      int cycles = 1000;
+
 
       // --------------
       // |Bubble Sort:|
       // --------------
 
-      long startTime = System.nanoTime();
+      // long startTime = System.nanoTime();
+      long time = 0;
 
-      bubble_sort(intArray);
+      time = bubble_sort_multi(intArray, cycles);
 
       // 'End' timer
-      long endTime = System.nanoTime();
+      // long endTime = System.nanoTime();
 
-      long timeElapsed = endTime-startTime;
+      // long timeElapsed = endTime-startTime;
 
       try {
           Thread.sleep(1000);
@@ -149,20 +236,22 @@ public class Sorting_ii {
       }
 
 
-      System.out.println("[Bubble Sort] Execution time in nanoseconds  : " + timeElapsed);
+      System.out.println("[Bubble    Sort] Execution time in nanoseconds  : " + time);
 
       // -----------------
       // |Insertion Sort:|
       // -----------------
 
-      startTime = System.nanoTime();
+      // startTime = System.nanoTime();
 
-      insertion_sort(intArray2);
+      // insertion_sort(intArray2);
+
+      time = insertion_sort_multi(intArray2, cycles);
 
       // 'End' timer
-      endTime = System.nanoTime();
+      // endTime = System.nanoTime();
 
-      timeElapsed = endTime-startTime;
+      // timeElapsed = endTime-startTime;
 
       try {
           Thread.sleep(1000);
@@ -172,20 +261,21 @@ public class Sorting_ii {
           Thread.currentThread().interrupt();
       }
 
-      System.out.println("[Insertion Sort] Execution time in nanoseconds  : " + timeElapsed);
+      System.out.println("[Insertion Sort] Execution time in nanoseconds  : " + time);
 
       // -----------------
       // |Selection Sort:|
       // -----------------
 
-      startTime = System.nanoTime();
+      // startTime = System.nanoTime();
 
-      selection_sort(intArray3);
+      // selection_sort(intArray3);
+
 
       // 'End' timer
-      endTime = System.nanoTime();
+      // endTime = System.nanoTime();
 
-      timeElapsed = endTime-startTime;
+      // timeElapsed = endTime-startTime;
 
       try {
           Thread.sleep(1000);
@@ -195,7 +285,9 @@ public class Sorting_ii {
           Thread.currentThread().interrupt();
       }
 
-      System.out.println("[Selection Sort] Execution time in nanoseconds  : " + timeElapsed);
+      time = selection_sort_multi(intArray3, cycles);
+
+      System.out.println("[Selection Sort] Execution time in nanoseconds  : " + time);
 
       try {
           Thread.sleep(1000);
