@@ -246,22 +246,22 @@ public class Sorting_ii {
 
       // insertion_sort(intArray2);
 
-      time = insertion_sort_multi(intArray2, cycles);
+      // time = insertion_sort_multi(intArray2, cycles);
 
       // 'End' timer
       // endTime = System.nanoTime();
 
       // timeElapsed = endTime-startTime;
 
-      try {
-          Thread.sleep(1000);
-      }
-      catch(InterruptedException ex)
-      {
-          Thread.currentThread().interrupt();
-      }
-
-      System.out.println("[Insertion Sort] Execution time in nanoseconds  : " + time);
+      // try {
+      //     Thread.sleep(1000);
+      // }
+      // catch(InterruptedException ex)
+      // {
+      //     Thread.currentThread().interrupt();
+      // }
+      //
+      // System.out.println("[Insertion Sort] Execution time in nanoseconds  : " + time);
 
       // -----------------
       // |Selection Sort:|
